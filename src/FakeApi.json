@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Switch console",
+        "price": 519.90,
+        "seller": "Nintendo",
+        "image": "%PUBLIC_URL%/images/Switch.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Teddy Kirby",
+        "price": 19.95,
+        "seller": "Shanel",
+        "image": "%PUBLIC_URL%/images/Kirby-teddy.jpg"
+    }
+]
