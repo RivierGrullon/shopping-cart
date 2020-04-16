@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Cart} from './Cart'
+import {ItemCard} from './components/itemCard'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Cart />
+    <ItemCard id="0"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
