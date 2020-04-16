@@ -14,5 +14,19 @@
         "seller": "Shanel",
         "image": "images/Kirby-teddy.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere, leo eu fringilla pellentesque "
+    },
+    {
+        "id": 3,
+        "name": "Switch console",
+        "price": 519.90,
+        "seller": "Nintendo",
+        "image": "images/Switch.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Switch console",
+        "price": 519.90,
+        "seller": "Nintendo",
+        "image": "images/Switch.jpg"
     }
 ]
