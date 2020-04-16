@@ -21,7 +21,7 @@ export const ItemCard = ({id}) => {
             <div>
                 <img className="image" src ={products.image}/>
             </div>
-            
+
             <div class="card-footer">
 
                 <div class="action">

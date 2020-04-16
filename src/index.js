@@ -8,7 +8,7 @@ import {ItemCard} from './components/itemCard'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ItemCard id="0"/>
+    <Cart/>
   </React.StrictMode>,
   document.getElementById('root')
 );
