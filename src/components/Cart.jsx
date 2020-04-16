@@ -2,21 +2,32 @@ import React, { useState, useEffect } from 'react'
 import dataFake from '../FakeApi.json'
 import '../static/Cart.css'
 import CartProduct from './CartProduct'
+import ShippingPriceMenu from './ShippingPriceMenu'
+
+export const ShippingContext = React.createContext();
 
 export const Cart = () => {
     const data = dataFake.map((item) => { return { ...item, mount: 1 } })
     const [products, setProducts] = useState(data)
-    const [totalPrice, setTotalPrice] = useState(0.00)
-
+    const [subTotalPrice, setSubTotalPrice] = useState(0)
+    const [shippingPrice, setShippingPrice] = useState(subTotalPrice)
+    const [totalPrice, setTotalPrice] = useState(0)
     useEffect(() => {
         var total = 0
         products.forEach(({ price, mount }) => {
             total += price * mount;
         })
-        setTotalPrice(total)
+        setSubTotalPrice(total)
     }, [products])
 
-    const UpdateAmount = (id, type) => {
+    useEffect(() => {
+        setTotalPrice(subTotalPrice + shippingPrice)
+    }, [shippingPrice])
+
+    useEffect(() => {
+        setTotalPrice(subTotalPrice + shippingPrice)
+    }, [subTotalPrice])
+    const updateAmount = (id, type) => {
         const mountToAdd = type === 'add' ? 1 : -1
         return () => {
             let newProducts = products.map(product =>
@@ -36,11 +47,17 @@ export const Cart = () => {
                     <div className="No-empty-cart">
                         <div className="Products-list">
                             {products.map((product) =>
-                                <CartProduct product={product} UpdateAmount={UpdateAmount} key={product.id} />
+                                <CartProduct product={product} updateAmount={updateAmount} key={product.id} />
                             )}
                         </div>
-                        <div className="Total-price">
-                            <h1>Total: {totalPrice.toFixed(2)}</h1>
+                        <div className="Price Sub-total-price">
+                            <p>SUBTOTAL: ${subTotalPrice.toFixed(2)}</p>
+                        </div>
+                        <ShippingContext.Provider value={{ setShippingPrice }}>
+                            <ShippingPriceMenu />
+                        </ShippingContext.Provider>
+                        <div className="Price Total-price">
+                            <h1>TOTAL: <span>${totalPrice}</span></h1>
                         </div>
                     </div>
                 )

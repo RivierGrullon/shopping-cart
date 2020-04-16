@@ -9,7 +9,10 @@
     width: 80vw;
     background-color: rgb(67, 146, 231);
     border-radius: 20px;
-    height: 85vh;
+    min-height: 85vh;
+    -webkit-box-shadow: 0px 0px 39px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 39px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 39px 0px rgba(0,0,0,0.75);
 }
 
 #shopping-cart-icon {
@@ -20,7 +23,6 @@
 .No-empty-cart {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     min-height: 75vh;
 }
 
@@ -28,7 +30,6 @@
     overflow: scroll ;
     overflow-x: hidden;
     height: 60vh;
-    margin-bottom: auto;
 }
 
 .Products-list::-webkit-scrollbar {
@@ -38,26 +39,63 @@
     background-color: #0962C0 ;
 }
 
-.Total-price {
+.Price {
+    margin-top: 10px;
+    text-align: right;
+    margin-right: 10%;
+    font-weight: bolder;
+}
+
+.Sub-total-price {
+    font-size: 16px;
+}
+
+.Total-price > h1 >span{
+    color: #a83939;
+}
+
+.Shipping-options {
+    margin-left: auto;
+    display: flex;
+    margin-top: 10px;
     text-align: right;
     margin-right: 10%;
 }
+.Shipping-options > * {
+    margin-right: 10px;
+}
 
-.Product-container {
+.Shipping-options-form {
+    display: flex;
+    flex-direction: column;
+}
+.Shipping-options-form >* {
+    text-align: left;
+    margin-top: 5px;
+}
+
+.Product-container{
     min-height: 150px;
     margin: 20px 0;
     border-radius: 15px 50px;
-    background-color: #aaaaaa;
+    background-color: #fff;
     display: flex;
     align-items: center;
 }
+.Product-container:hover {
+    border: 2.5px solid #FF5555;
+}
 
-.Products-list > img {
-    margin: 0 20px;
+
+.Product-image {
+    margin: 0 2em;
     width: 100px;
     height: 100px;
 }
-
+.images{
+    width: 100px;
+    height: 100px;
+}
 .Product-info > #name {
     font-weight: bold;
     font-size: 20px;
@@ -70,9 +108,15 @@
 .Product-mount {
     margin-left: auto;
     display: flex;
-    margin-right: 5px;
-    width: 10%;
+    margin-right: 10px;
+    width: 15%;
     justify-content: space-around;
+    align-items: center;
+}
+
+.icons-buttons{
+    width: 50px;
+    height: 50px;
 }
 
 .Product-price {
@@ -82,6 +126,11 @@
 .Empty-cart {
     height: 60vh;
     text-align: center;
+}
+
+.Empty-cart >img {
+    width: 200px;
+    height: 200px;
 }
 
 .Empty-cart > * {

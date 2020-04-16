@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {Cart} from './Cart'
+import {Cart} from './components/Cart'
 import {ItemCard} from './components/itemCard'
 
 ReactDOM.render(
