@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import dataFake from '../FakeApi.json'
+import React from 'react'
 import '../static/itemCard.css'
-export const ItemCard = ({id}) => {
-    const data = dataFake
-    const [products, setProducts] = useState(data[id]);
+
+
+export const ItemCard = ({products}) => {
+
     console.log(products)
     return (
         <div className="itemCard-container">
@@ -19,13 +19,13 @@ export const ItemCard = ({id}) => {
             </div>
             </div>
             <div>
-                <img className="image" src ={products.image}/>
+                <img className="image" src ={products.image} alt="imgproduct"/>
             </div>
 
-            <div class="card-footer">
+            <div className="card-footer">
 
-                <div class="action">
-                    <button type="button">Add to cart</button>
+                <div className="action">
+                    <button type="button" onClick={(e)=>console.log(products)}>Add to cart</button>
                 </div>
              </div>
         </div>

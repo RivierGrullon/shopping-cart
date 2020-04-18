@@ -5,11 +5,11 @@
 }
 
   .itemCard-container{
-    height: 800px;
+
     width: 400px;
     display: grid;
-    grid-template-columns: repeat(auto-fit,1fr);
-    grid-template-rows: 40px 300px 60px;
+    grid-template-columns: repeat(auto-fit);
+    grid-template-rows: 40px 200px 60px;
     grid-template-areas: "header header"
                          "img description"
                          "footer footer";
@@ -23,7 +23,7 @@
   .image{
       grid-area: img ;
     padding-top: 15px;
-    width: 100%;
+    width: 90px;
   }
 
  .img > img{
@@ -60,7 +60,7 @@
     padding: 20px
 }
 
-.card-footer > button{
+.action > button{
     display: flex;
     cursor: pointer;
     border: 1px solid #115dd8;
@@ -73,6 +73,21 @@
     transition: 200ms;
 
 }
+.action > button:hover{
+  display: flex;
+  cursor: pointer;
+  border: 1px solid #115dd8;
+  padding: 14px 30px;
+  border-radius: 200px;
+  color: black;
+  background: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  transition: 200ms;
+
+}
+
+
 
 .stock{
   text-align: left;
