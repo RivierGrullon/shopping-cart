@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import dataFake from '../FakeApi.json'
+import React, { useState, useEffect, useContext } from 'react'
 import '../static/Cart.css'
 import CartProduct from './CartProduct'
 import ShippingPriceMenu from './ShippingPriceMenu'
+import {CartContext} from './ui'
 
 export const ShippingContext = React.createContext();
 
 export const Cart = () => {
-    const data = dataFake.map((item) => { return { ...item, mount: 1 } })
-    const [products, setProducts] = useState(data)
+    const {cartProducts, setCartProducts} = useContext(CartContext)
+    console.log(cartProducts);
     const [subTotalPrice, setSubTotalPrice] = useState(0)
     const [shippingPrice, setShippingPrice] = useState(subTotalPrice)
     const [totalPrice, setTotalPrice] = useState(0)
     useEffect(() => {
         var total = 0
-        products.forEach(({ price, mount }) => {
+        cartProducts.forEach(({ price, mount }) => {
             total += price * mount;
         })
         setSubTotalPrice(total)
-    }, [products])
+    }, [cartProducts])
 
     useEffect(() => {
         setTotalPrice(subTotalPrice + shippingPrice)
@@ -30,23 +30,23 @@ export const Cart = () => {
     const updateAmount = (id, type) => {
         const mountToAdd = type === 'add' ? 1 : -1
         return () => {
-            let newProducts = products.map(product =>
+            let newCartProducts = cartProducts.map(product =>
                 product.id === id ?
                     { ...product, mount: product.mount + mountToAdd }
                     : product
             )
-            newProducts = newProducts.filter((product) => product.mount > 0)
-            setProducts(newProducts)
+            newCartProducts = newCartProducts.filter((product) => product.mount > 0)
+            setCartProducts(newCartProducts)
         }
     }
     return (
         <div className="Cart-container">
             <img src="/images/shopping-cart.svg" alt="Shopping cart icon" id="shopping-cart-icon" />
-            {products.length > 0 ?
+            {cartProducts.length > 0 ?
                 (
                     <div className="No-empty-cart">
                         <div className="Products-list">
-                            {products.map((product) =>
+                            {cartProducts.map((product) =>
                                 <CartProduct product={product} updateAmount={updateAmount} key={product.id} />
                             )}
                         </div>

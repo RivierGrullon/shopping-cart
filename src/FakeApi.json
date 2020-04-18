@@ -17,16 +17,18 @@
     },
     {
         "id": 3,
-        "name": "Switch console",
+        "name": "Wall-e Eva",
         "price": 519.90,
-        "seller": "Nintendo",
-        "image": "images/Switch.jpg"
+        "seller": "Disney",
+        "image": "images/wall_e-and-eva.jpg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere, leo eu fringilla pellentesque "
     },
     {
         "id": 4,
-        "name": "Switch console",
+        "name": "Sporke",
         "price": 519.90,
-        "seller": "Nintendo",
-        "image": "images/Switch.jpg"
+        "seller": "4chan",
+        "image": "images/spork.jpg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere, leo eu fringilla pellentesque "
     }
 ]
