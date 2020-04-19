@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import '../static/Cart.css'
 import CartProduct from './CartProduct'
 import ShippingPriceMenu from './ShippingPriceMenu'
-import {CartContext} from './ui'
+import { CartContext } from './ui'
 
 export const ShippingContext = React.createContext();
 
 export const Cart = () => {
-    const {cartProducts, setCartProducts, setTemplate} = useContext(CartContext)
+    const { cartProducts, setCartProducts, setTemplate } = useContext(CartContext)
 
     const [subTotalPrice, setSubTotalPrice] = useState(0)
     const [shippingPrice, setShippingPrice] = useState(subTotalPrice)
@@ -41,10 +41,31 @@ export const Cart = () => {
             setCartProducts(newCartProducts)
         }
     }
+
+    const useOutsideClick = (ref) => {
+        useEffect(() => {
+
+            function handleClickOutside(event) {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    setTemplate(false);
+                }
+            }
+
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, [ref]);
+    }
+
+
+    const wrapperRef = useRef(null);
+    useOutsideClick(wrapperRef);
     return (
-        <div className="Cart-container">
+        <div className="Cart-container" ref={wrapperRef}>
             <img src="/images/shopping-cart.svg" alt="Shopping cart icon" id="shopping-cart-icon" />
-            <span className="close" onClick={()=>setTemplate(false)}>&times;</span>
+            <span className="close" onClick={() => setTemplate(false)}>&times;</span>
             {cartProducts.length > 0 ?
                 (
                     <div className="No-empty-cart">
