@@ -60,7 +60,7 @@ export const Cart = () => {
                             <ShippingPriceMenu />
                         </ShippingContext.Provider>
                         <div className="Price Total-price">
-                            <h1>TOTAL: <span>${totalPrice}</span></h1>
+                            <h1>TOTAL: <span>${totalPrice.toFixed(2)}</span></h1>
                         </div>
                     </div>
                 )
