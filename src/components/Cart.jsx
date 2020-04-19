@@ -42,6 +42,13 @@ export const Cart = () => {
         }
     }
 
+    const removeProduct = (currentId) =>{
+        return () => {
+            let newCartProducts = cartProducts.filter(({id}) => currentId !== id)
+            setCartProducts(newCartProducts);
+        }
+    }
+
     const useOutsideClick = (ref) => {
         useEffect(() => {
 
@@ -65,13 +72,13 @@ export const Cart = () => {
     return (
         <div className="Cart-container" ref={wrapperRef}>
             <img src="/images/shopping-cart.svg" alt="Shopping cart icon" id="shopping-cart-icon" />
-            <span className="close" onClick={() => setTemplate(false)}>&times;</span>
+            <span className="close" title="Close" onClick={() => setTemplate(false)}>&times;</span>
             {cartProducts.length > 0 ?
                 (
                     <div className="No-empty-cart">
                         <div className="Products-list">
                             {cartProducts.map((product) =>
-                                <CartProduct product={product} updateAmount={updateAmount} key={product.id} />
+                                <CartProduct product={product} updateAmount={updateAmount} removeProduct={removeProduct} key={product.id} />
                             )}
                         </div>
                         <div className="Price Sub-total-price">
