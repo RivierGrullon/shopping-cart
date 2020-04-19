@@ -9,7 +9,7 @@ export const CartContext = React.createContext();
 export const UI = () =>{
     const data = dataFake
     const [products] = useState(data);
-    const [template, setTemplate] = useState(0);
+    const [template, setTemplate] = useState(false);
     const [cartProducts, setCartProducts] = useState([])
 
     return(
@@ -17,27 +17,22 @@ export const UI = () =>{
             <div className="Header">
                 <nav>
                     <ul>
-                        <li onClick={()=>setTemplate(0)}><span>Home</span></li>
-                        <li onClick={()=>setTemplate(1)}><span>Products</span></li>
+                        <li onClick={()=>setTemplate(false)}><span>Home</span></li>
+                        <li onClick={()=>setTemplate(true)}><span>Products</span></li>
                     </ul>
                 </nav>
             </div>
-            <CartContext.Provider value={{cartProducts, setCartProducts}}>
-                {template === 0 ?
-                (
-                    <div className="items-container">
-                        {products.map(product=>{
-                            return(
-                                <ItemCard products={product} key={product.id}/>
-                            )
-                        })}
-                    </div>
-                )
-                :
-                (
-                    <Cart />
-                )
-                }
+            <CartContext.Provider value={{cartProducts, setCartProducts, setTemplate}}>
+                <div className="items-container">
+                    {products.map(product=>{
+                        return(
+                            <ItemCard products={product} key={product.id}/>
+                        )
+                    })}
+                </div>
+
+                {template && <Cart/>}
+
             </CartContext.Provider>
 
             <div className="footer-container">

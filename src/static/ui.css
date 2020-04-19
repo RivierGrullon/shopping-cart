@@ -54,14 +54,28 @@
 	background: rgb(2,0,36);
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(245,127,189,0.2777485994397759) 0%, rgba(231,57,177,1) 67%);
 }
+
 .items-container{
 	grid-area: img;
-	width: 300px;
-	display: grid;
-	grid-template-columns: repeat(3,1fr);
-	grid-gap:20px;
-	justify-items: center;
+	margin: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1.5rem;
+	justify-content: space-between;
+
 }
+.items-container > .itemCard-container {
+	margin-bottom: 20px
+
+}
+@media only screen and (max-width: 930px) {
+	body {
+	  background-color: lightblue;
+	}
+	.items-container{
+		justify-content: center;
+	}
+  }
 
 .footer-container{
 	height: 40px;

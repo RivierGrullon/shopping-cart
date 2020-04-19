@@ -7,17 +7,6 @@ export const ItemCard = ({ products }) => {
 
     const addProductsToCart = () => {
 
-        // let newCartsProducts = cartProducts.map(( cartProduct) => {
-        //     if (products.id === cartProduct.id) {
-        //         return {...cartProduct, mount: cartProduct.mount + 1}
-        //     }
-        //     else {
-        //         return { ...cartProduct, mount: 1 }
-        //     }
-        // });
-        // setCartProducts(newCartsProducts);
-        // console.log(newCartsProducts)
-
         let newProduct = cartProducts.find((product) => {
             return product.id === products.id
         })

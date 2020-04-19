@@ -7,8 +7,8 @@ import {CartContext} from './ui'
 export const ShippingContext = React.createContext();
 
 export const Cart = () => {
-    const {cartProducts, setCartProducts} = useContext(CartContext)
-    console.log(cartProducts);
+    const {cartProducts, setCartProducts, setTemplate} = useContext(CartContext)
+
     const [subTotalPrice, setSubTotalPrice] = useState(0)
     const [shippingPrice, setShippingPrice] = useState(subTotalPrice)
     const [totalPrice, setTotalPrice] = useState(0)
@@ -22,10 +22,12 @@ export const Cart = () => {
 
     useEffect(() => {
         setTotalPrice(subTotalPrice + shippingPrice)
+        // eslint-disable-next-line
     }, [shippingPrice])
 
     useEffect(() => {
         setTotalPrice(subTotalPrice + shippingPrice)
+        // eslint-disable-next-line
     }, [subTotalPrice])
     const updateAmount = (id, type) => {
         const mountToAdd = type === 'add' ? 1 : -1
@@ -42,6 +44,7 @@ export const Cart = () => {
     return (
         <div className="Cart-container">
             <img src="/images/shopping-cart.svg" alt="Shopping cart icon" id="shopping-cart-icon" />
+            <span className="close" onClick={()=>setTemplate(false)}>&times;</span>
             {cartProducts.length > 0 ?
                 (
                     <div className="No-empty-cart">
