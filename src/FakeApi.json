@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Switch console",
+        "price": 519.90,
+        "seller": "Nintendo",
+        "image": "images/Switch.jpg",
+        "description": "The Nintendo Switch is a hybrid video game console, consisting of a console unit, a dock, and two Joy-Con controllers. Although it is a hybrid console, Nintendo classifies it as a home console that you can take with you on the go."
+    },
+    {
+        "id": 2,
+        "name": "Teddy Kirby",
+        "price": 19.95,
+        "seller": "Shanel",
+        "image": "images/Kirby-teddy.jpg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere, leo eu fringilla pellentesque "
+    },
+    {
+        "id": 3,
+        "name": "Wall-e Eva",
+        "price": 519.90,
+        "seller": "Disney",
+        "image": "images/wall_e-and-eva.jpg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere, leo eu fringilla pellentesque "
+    },
+    {
+        "id": 4,
+        "name": "Sporke",
+        "price": 51.90,
+        "seller": "4chan",
+        "image": "images/spork.jpg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere, leo eu fringilla pellentesque "
+    }
+]

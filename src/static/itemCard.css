@@ -1,0 +1,98 @@
+
+
+*{
+  box-sizing: border-box;
+}
+
+  .itemCard-container{
+
+    width: 400px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit);
+    grid-template-rows: 40px 200px 60px;
+    grid-template-areas: "header header"
+                         "img description"
+                         "footer footer";
+    grid-gap: 15px;
+    border-radius: 50px;
+    box-shadow: 0 0 20px 0 rgba(17, 14, 14, 0.3);
+    transition: 200ms;
+    background: #fff;
+  }
+
+  .image{
+      grid-area: img ;
+    padding-top: 15px;
+    width: 90px;
+  }
+
+ .img > img{
+    display: block;
+    max-width: 420px;
+    height: 250px;
+  }
+
+.description{
+    grid-area: description;
+    margin-bottom: 25px;
+}
+.header{
+    grid-area: header;
+    display: flex;
+    justify-content: center
+
+}
+.header > h3{
+    color: #252525;
+    font-family: sans-serif;
+    text-transform: uppercase;
+  }
+
+
+.card-footer{
+    background-color: #115dd8;
+    grid-area: footer;
+    display: flex;
+    flex-flow: row no-wrap;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    padding: 20px
+}
+
+.action > button{
+    display: flex;
+    cursor: pointer;
+    border: 1px solid #115dd8;
+    padding: 14px 30px;
+    border-radius: 200px;
+    color: #fff;
+    background: #115dd8;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    transition: 200ms;
+
+}
+.action > button:hover{
+  display: flex;
+  cursor: pointer;
+  border: 1px solid #115dd8;
+  padding: 14px 30px;
+  border-radius: 200px;
+  color: black;
+  background: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  transition: 200ms;
+
+}
+
+
+
+.stock{
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  margin-left: 5px;
+  color: greenyellow;
+}
